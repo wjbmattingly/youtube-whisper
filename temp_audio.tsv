@@ -1,0 +1,102 @@
+start	end	text
+0	2460	Hi, and welcome back to this channel.
+2460	3800	In this video, we're going to be looking at
+3800	8000	the new chat GPT feature that allows for you to create custom GPTs.
+8000	10320	When you load up chat.openai.com,
+10320	12520	your new window looks something like this.
+12520	15160	On the left-hand side, you'll see this Explore button.
+15160	20520	If we click Explore, we'll be taken to a new prompt where we can go ahead and start creating a new GPT.
+20520	23920	In this video, we're going to try to create a new GPT that can classify
+23920	27600	specific kinds of entities, namely vehicles and buildings.
+27600	32360	To do this, we're going to hit Create a GPT and we'll be taken to this prompt here.
+32360	37840	This page allows for us to pass natural language instructions to create a set of
+37840	41120	custom rules for this GPT model to follow.
+41120	42920	What's really cool about this is that
+42920	48080	a OpenAI will take care of creating everything for us automatically with natural language.
+48080	51120	So what do we want this GPT to really do?
+51120	53160	Well, what we wanted to do is we wanted to be able to take in
+53160	57200	an input text and automatically annotate it by giving us things like
+57280	60720	different kinds of buildings, people, places, etc.
+60720	64760	In other words, we wanted to function kind of like a named entity recognizer
+64760	67120	that can work without a scope data.
+67120	70400	Let's go ahead and give it these very natural instructions.
+70400	76920	Create a GPT that can identify named entities.
+76920	87160	I want to find things like vehicles, places, people, events, dates, and buildings.
+87360	94000	Output the data as JSON only.
+94000	98080	And this will let us have a JSON schema that we can use going forward.
+98080	99800	So let's go ahead and just hit Enter.
+99800	104480	And we'll notice that immediately OpenAI's GPT builder starts spinning up.
+104480	108080	Now, what's happening here in the back end is OpenAI is taking our natural
+108080	113880	instructions and translating them into proper configuration rules, essentially,
+113880	117080	which was he populated in the Configure section in just a moment.
+117080	123040	And as you can see, this entire process only takes roughly about 20 seconds to do.
+123040	126680	Once this is done, it's going to prompt us to give it a new name.
+126680	129440	And we can go ahead and just accept what it gives us.
+129440	130720	Yes, I like that.
+130720	134680	So go ahead and name it essentially entity explorer.
+134680	136960	And we'll see that it's happy with our choice.
+136960	140840	And then it's finally going to prompt for us to generate essentially an image for this.
+140840	142880	This will be its profile image.
+142920	145600	And it's using Dolly 3 to do this in just a moment.
+145600	147320	This is going to be done.
+147320	150480	While this is happening, let's go ahead and explore what's happening on the right
+150480	151720	hand of the screen.
+151720	155440	On the right side of the screen, we see things like find entities in this text and
+155440	156960	all these other little prompts.
+156960	160920	This is the result of the config file that's already been generated for us.
+160920	164080	And this is where we can test out how this model is working and
+164080	166160	if it's doing what we want it to do.
+166160	168960	And we're going to go ahead and say, yes, keep that.
+168960	170280	And we're happy with it.
+170280	173600	So now that we have our image, our title, and our set of instructions,
+173600	176040	let's go ahead and take a look at the configure section.
+177440	181600	As you can tell, we've gone ahead and already got this all populated for us.
+181600	184880	This is what GPT builder was doing in the background.
+184880	186840	As you can tell, we've got a couple different things here,
+186840	190120	such as the name of it, which hasn't been updated yet, a description of it,
+190120	193480	which we can see populated here, and a brief set of instructions,
+193480	197760	which it's translated for us into probably a better collection of instructions.
+197760	202440	And it's also given us a couple conversation starters, which pop up right here.
+202440	206120	Let's go ahead and go back to create and take a look at what we can do.
+206120	209200	So let's go ahead and say, find entities in this text.
+209200	213240	But I'm just going to go ahead and paste in an opening bit of dialogue from
+213240	215760	a United States Holocaust Memorial Museum testimony.
+217200	219960	And as you can tell, all I've had to do in this is in real time is simply
+219960	222960	paste in a single block of text.
+222960	225800	Now what I like to do when I'm creating one of these builders is I like to give
+225800	228760	it as few instructions as possible, especially if I'm doing something like
+228760	231680	classification, which named entity recognition is.
+231680	234680	And the reason for this is because it will come up with a schema.
+234680	239000	And I can look at the schema and say, hmm, do I like this or do I not like this?
+239000	242160	And what I can do for my next iteration of this creation,
+242160	247000	when I start to adjust these instructions, is I can use the schema that it's generated
+247000	250480	and go ahead and accept that and apply it into the main text.
+250480	252560	So as you can see, we're getting a couple outputs and
+252560	255160	we have different kinds of entities being populated.
+255160	260360	We have a person in this case, Agnes Adaki, and it keeps on going on down the list.
+260360	264320	And it even has extracted this individual's maiden name as well.
+264320	267120	If we keep on going down, we see other kinds of events.
+267120	269440	In this case, this is a place.
+269440	273280	And it's also specifically referencing Budapest Hungry and
+273280	275800	the date of the event actually taking place.
+275800	279000	So in this case, this isn't functioning like a typical NER model.
+279000	281400	Rather, it's giving a lot of extra metadata.
+281400	283920	What's really nice about this is for as far as I can tell,
+283920	285880	I'm not seeing any hallucinations.
+285880	289200	Now that's not to indicate that hallucinations won't actually occur.
+289200	291640	In fact, you can probably expect that they do.
+291640	294760	What I like to do though is just use this as a way to kind of explore my data
+294760	297440	real quickly and do some manual validation.
+297440	301800	This helps me think through ways in which I can kind of structure structured metadata.
+301800	305160	But let's just pretend for just a moment that I'd like all of this.
+305160	306680	What can I do at this stage?
+306680	309960	Well, let's say I want to just work with this internally.
+309960	312560	I can click the Save button and I can select,
+312560	315600	I only want to be the one to view this and work with it.
+315600	318960	I'll do this when I'm developing this, at least testing out a couple things.
+318960	321920	When I'm ready to send this out and have other individuals test this model and
+321920	326280	how it's performing on out of scope data that probably I can't come up with,
+326280	331200	I can then allow only people with the link to actually access and use this model.
+331200	335320	And then finally, once I pass that test, I can go ahead and select public and
+335320	339320	make this publicly available for others to test it and give larger feedback.
+339320	343680	But overall, that's a very quick introduction to this new OpenAI feature

@@ -1,0 +1,101 @@
+Hi, and welcome back to this channel.
+In this video, we're going to be looking at
+the new chat GPT feature that allows for you to create custom GPTs.
+When you load up chat.openai.com,
+your new window looks something like this.
+On the left-hand side, you'll see this Explore button.
+If we click Explore, we'll be taken to a new prompt where we can go ahead and start creating a new GPT.
+In this video, we're going to try to create a new GPT that can classify
+specific kinds of entities, namely vehicles and buildings.
+To do this, we're going to hit Create a GPT and we'll be taken to this prompt here.
+This page allows for us to pass natural language instructions to create a set of
+custom rules for this GPT model to follow.
+What's really cool about this is that
+a OpenAI will take care of creating everything for us automatically with natural language.
+So what do we want this GPT to really do?
+Well, what we wanted to do is we wanted to be able to take in
+an input text and automatically annotate it by giving us things like
+different kinds of buildings, people, places, etc.
+In other words, we wanted to function kind of like a named entity recognizer
+that can work without a scope data.
+Let's go ahead and give it these very natural instructions.
+Create a GPT that can identify named entities.
+I want to find things like vehicles, places, people, events, dates, and buildings.
+Output the data as JSON only.
+And this will let us have a JSON schema that we can use going forward.
+So let's go ahead and just hit Enter.
+And we'll notice that immediately OpenAI's GPT builder starts spinning up.
+Now, what's happening here in the back end is OpenAI is taking our natural
+instructions and translating them into proper configuration rules, essentially,
+which was he populated in the Configure section in just a moment.
+And as you can see, this entire process only takes roughly about 20 seconds to do.
+Once this is done, it's going to prompt us to give it a new name.
+And we can go ahead and just accept what it gives us.
+Yes, I like that.
+So go ahead and name it essentially entity explorer.
+And we'll see that it's happy with our choice.
+And then it's finally going to prompt for us to generate essentially an image for this.
+This will be its profile image.
+And it's using Dolly 3 to do this in just a moment.
+This is going to be done.
+While this is happening, let's go ahead and explore what's happening on the right
+hand of the screen.
+On the right side of the screen, we see things like find entities in this text and
+all these other little prompts.
+This is the result of the config file that's already been generated for us.
+And this is where we can test out how this model is working and
+if it's doing what we want it to do.
+And we're going to go ahead and say, yes, keep that.
+And we're happy with it.
+So now that we have our image, our title, and our set of instructions,
+let's go ahead and take a look at the configure section.
+As you can tell, we've gone ahead and already got this all populated for us.
+This is what GPT builder was doing in the background.
+As you can tell, we've got a couple different things here,
+such as the name of it, which hasn't been updated yet, a description of it,
+which we can see populated here, and a brief set of instructions,
+which it's translated for us into probably a better collection of instructions.
+And it's also given us a couple conversation starters, which pop up right here.
+Let's go ahead and go back to create and take a look at what we can do.
+So let's go ahead and say, find entities in this text.
+But I'm just going to go ahead and paste in an opening bit of dialogue from
+a United States Holocaust Memorial Museum testimony.
+And as you can tell, all I've had to do in this is in real time is simply
+paste in a single block of text.
+Now what I like to do when I'm creating one of these builders is I like to give
+it as few instructions as possible, especially if I'm doing something like
+classification, which named entity recognition is.
+And the reason for this is because it will come up with a schema.
+And I can look at the schema and say, hmm, do I like this or do I not like this?
+And what I can do for my next iteration of this creation,
+when I start to adjust these instructions, is I can use the schema that it's generated
+and go ahead and accept that and apply it into the main text.
+So as you can see, we're getting a couple outputs and
+we have different kinds of entities being populated.
+We have a person in this case, Agnes Adaki, and it keeps on going on down the list.
+And it even has extracted this individual's maiden name as well.
+If we keep on going down, we see other kinds of events.
+In this case, this is a place.
+And it's also specifically referencing Budapest Hungry and
+the date of the event actually taking place.
+So in this case, this isn't functioning like a typical NER model.
+Rather, it's giving a lot of extra metadata.
+What's really nice about this is for as far as I can tell,
+I'm not seeing any hallucinations.
+Now that's not to indicate that hallucinations won't actually occur.
+In fact, you can probably expect that they do.
+What I like to do though is just use this as a way to kind of explore my data
+real quickly and do some manual validation.
+This helps me think through ways in which I can kind of structure structured metadata.
+But let's just pretend for just a moment that I'd like all of this.
+What can I do at this stage?
+Well, let's say I want to just work with this internally.
+I can click the Save button and I can select,
+I only want to be the one to view this and work with it.
+I'll do this when I'm developing this, at least testing out a couple things.
+When I'm ready to send this out and have other individuals test this model and
+how it's performing on out of scope data that probably I can't come up with,
+I can then allow only people with the link to actually access and use this model.
+And then finally, once I pass that test, I can go ahead and select public and
+make this publicly available for others to test it and give larger feedback.
+But overall, that's a very quick introduction to this new OpenAI feature

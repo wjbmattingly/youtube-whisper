@@ -1,0 +1,404 @@
+1
+00:00:00,000 --> 00:00:02,460
+Hi, and welcome back to this channel.
+
+2
+00:00:02,460 --> 00:00:03,800
+In this video, we're going to be looking at
+
+3
+00:00:03,800 --> 00:00:08,000
+the new chat GPT feature that allows for you to create custom GPTs.
+
+4
+00:00:08,000 --> 00:00:10,320
+When you load up chat.openai.com,
+
+5
+00:00:10,320 --> 00:00:12,520
+your new window looks something like this.
+
+6
+00:00:12,520 --> 00:00:15,160
+On the left-hand side, you'll see this Explore button.
+
+7
+00:00:15,160 --> 00:00:20,520
+If we click Explore, we'll be taken to a new prompt where we can go ahead and start creating a new GPT.
+
+8
+00:00:20,520 --> 00:00:23,920
+In this video, we're going to try to create a new GPT that can classify
+
+9
+00:00:23,920 --> 00:00:27,600
+specific kinds of entities, namely vehicles and buildings.
+
+10
+00:00:27,600 --> 00:00:32,360
+To do this, we're going to hit Create a GPT and we'll be taken to this prompt here.
+
+11
+00:00:32,360 --> 00:00:37,840
+This page allows for us to pass natural language instructions to create a set of
+
+12
+00:00:37,840 --> 00:00:41,120
+custom rules for this GPT model to follow.
+
+13
+00:00:41,120 --> 00:00:42,920
+What's really cool about this is that
+
+14
+00:00:42,920 --> 00:00:48,080
+a OpenAI will take care of creating everything for us automatically with natural language.
+
+15
+00:00:48,080 --> 00:00:51,120
+So what do we want this GPT to really do?
+
+16
+00:00:51,120 --> 00:00:53,160
+Well, what we wanted to do is we wanted to be able to take in
+
+17
+00:00:53,160 --> 00:00:57,200
+an input text and automatically annotate it by giving us things like
+
+18
+00:00:57,280 --> 00:01:00,720
+different kinds of buildings, people, places, etc.
+
+19
+00:01:00,720 --> 00:01:04,760
+In other words, we wanted to function kind of like a named entity recognizer
+
+20
+00:01:04,760 --> 00:01:07,120
+that can work without a scope data.
+
+21
+00:01:07,120 --> 00:01:10,400
+Let's go ahead and give it these very natural instructions.
+
+22
+00:01:10,400 --> 00:01:16,920
+Create a GPT that can identify named entities.
+
+23
+00:01:16,920 --> 00:01:27,160
+I want to find things like vehicles, places, people, events, dates, and buildings.
+
+24
+00:01:27,360 --> 00:01:34,000
+Output the data as JSON only.
+
+25
+00:01:34,000 --> 00:01:38,080
+And this will let us have a JSON schema that we can use going forward.
+
+26
+00:01:38,080 --> 00:01:39,800
+So let's go ahead and just hit Enter.
+
+27
+00:01:39,800 --> 00:01:44,480
+And we'll notice that immediately OpenAI's GPT builder starts spinning up.
+
+28
+00:01:44,480 --> 00:01:48,080
+Now, what's happening here in the back end is OpenAI is taking our natural
+
+29
+00:01:48,080 --> 00:01:53,880
+instructions and translating them into proper configuration rules, essentially,
+
+30
+00:01:53,880 --> 00:01:57,080
+which was he populated in the Configure section in just a moment.
+
+31
+00:01:57,080 --> 00:02:03,040
+And as you can see, this entire process only takes roughly about 20 seconds to do.
+
+32
+00:02:03,040 --> 00:02:06,680
+Once this is done, it's going to prompt us to give it a new name.
+
+33
+00:02:06,680 --> 00:02:09,440
+And we can go ahead and just accept what it gives us.
+
+34
+00:02:09,440 --> 00:02:10,720
+Yes, I like that.
+
+35
+00:02:10,720 --> 00:02:14,680
+So go ahead and name it essentially entity explorer.
+
+36
+00:02:14,680 --> 00:02:16,960
+And we'll see that it's happy with our choice.
+
+37
+00:02:16,960 --> 00:02:20,840
+And then it's finally going to prompt for us to generate essentially an image for this.
+
+38
+00:02:20,840 --> 00:02:22,880
+This will be its profile image.
+
+39
+00:02:22,920 --> 00:02:25,600
+And it's using Dolly 3 to do this in just a moment.
+
+40
+00:02:25,600 --> 00:02:27,320
+This is going to be done.
+
+41
+00:02:27,320 --> 00:02:30,480
+While this is happening, let's go ahead and explore what's happening on the right
+
+42
+00:02:30,480 --> 00:02:31,720
+hand of the screen.
+
+43
+00:02:31,720 --> 00:02:35,440
+On the right side of the screen, we see things like find entities in this text and
+
+44
+00:02:35,440 --> 00:02:36,960
+all these other little prompts.
+
+45
+00:02:36,960 --> 00:02:40,920
+This is the result of the config file that's already been generated for us.
+
+46
+00:02:40,920 --> 00:02:44,080
+And this is where we can test out how this model is working and
+
+47
+00:02:44,080 --> 00:02:46,160
+if it's doing what we want it to do.
+
+48
+00:02:46,160 --> 00:02:48,960
+And we're going to go ahead and say, yes, keep that.
+
+49
+00:02:48,960 --> 00:02:50,280
+And we're happy with it.
+
+50
+00:02:50,280 --> 00:02:53,600
+So now that we have our image, our title, and our set of instructions,
+
+51
+00:02:53,600 --> 00:02:56,040
+let's go ahead and take a look at the configure section.
+
+52
+00:02:57,440 --> 00:03:01,600
+As you can tell, we've gone ahead and already got this all populated for us.
+
+53
+00:03:01,600 --> 00:03:04,880
+This is what GPT builder was doing in the background.
+
+54
+00:03:04,880 --> 00:03:06,840
+As you can tell, we've got a couple different things here,
+
+55
+00:03:06,840 --> 00:03:10,120
+such as the name of it, which hasn't been updated yet, a description of it,
+
+56
+00:03:10,120 --> 00:03:13,480
+which we can see populated here, and a brief set of instructions,
+
+57
+00:03:13,480 --> 00:03:17,760
+which it's translated for us into probably a better collection of instructions.
+
+58
+00:03:17,760 --> 00:03:22,440
+And it's also given us a couple conversation starters, which pop up right here.
+
+59
+00:03:22,440 --> 00:03:26,120
+Let's go ahead and go back to create and take a look at what we can do.
+
+60
+00:03:26,120 --> 00:03:29,200
+So let's go ahead and say, find entities in this text.
+
+61
+00:03:29,200 --> 00:03:33,240
+But I'm just going to go ahead and paste in an opening bit of dialogue from
+
+62
+00:03:33,240 --> 00:03:35,760
+a United States Holocaust Memorial Museum testimony.
+
+63
+00:03:37,200 --> 00:03:39,960
+And as you can tell, all I've had to do in this is in real time is simply
+
+64
+00:03:39,960 --> 00:03:42,960
+paste in a single block of text.
+
+65
+00:03:42,960 --> 00:03:45,800
+Now what I like to do when I'm creating one of these builders is I like to give
+
+66
+00:03:45,800 --> 00:03:48,760
+it as few instructions as possible, especially if I'm doing something like
+
+67
+00:03:48,760 --> 00:03:51,680
+classification, which named entity recognition is.
+
+68
+00:03:51,680 --> 00:03:54,680
+And the reason for this is because it will come up with a schema.
+
+69
+00:03:54,680 --> 00:03:59,000
+And I can look at the schema and say, hmm, do I like this or do I not like this?
+
+70
+00:03:59,000 --> 00:04:02,160
+And what I can do for my next iteration of this creation,
+
+71
+00:04:02,160 --> 00:04:07,000
+when I start to adjust these instructions, is I can use the schema that it's generated
+
+72
+00:04:07,000 --> 00:04:10,480
+and go ahead and accept that and apply it into the main text.
+
+73
+00:04:10,480 --> 00:04:12,560
+So as you can see, we're getting a couple outputs and
+
+74
+00:04:12,560 --> 00:04:15,160
+we have different kinds of entities being populated.
+
+75
+00:04:15,160 --> 00:04:20,360
+We have a person in this case, Agnes Adaki, and it keeps on going on down the list.
+
+76
+00:04:20,360 --> 00:04:24,320
+And it even has extracted this individual's maiden name as well.
+
+77
+00:04:24,320 --> 00:04:27,120
+If we keep on going down, we see other kinds of events.
+
+78
+00:04:27,120 --> 00:04:29,440
+In this case, this is a place.
+
+79
+00:04:29,440 --> 00:04:33,280
+And it's also specifically referencing Budapest Hungry and
+
+80
+00:04:33,280 --> 00:04:35,800
+the date of the event actually taking place.
+
+81
+00:04:35,800 --> 00:04:39,000
+So in this case, this isn't functioning like a typical NER model.
+
+82
+00:04:39,000 --> 00:04:41,400
+Rather, it's giving a lot of extra metadata.
+
+83
+00:04:41,400 --> 00:04:43,920
+What's really nice about this is for as far as I can tell,
+
+84
+00:04:43,920 --> 00:04:45,880
+I'm not seeing any hallucinations.
+
+85
+00:04:45,880 --> 00:04:49,200
+Now that's not to indicate that hallucinations won't actually occur.
+
+86
+00:04:49,200 --> 00:04:51,640
+In fact, you can probably expect that they do.
+
+87
+00:04:51,640 --> 00:04:54,760
+What I like to do though is just use this as a way to kind of explore my data
+
+88
+00:04:54,760 --> 00:04:57,440
+real quickly and do some manual validation.
+
+89
+00:04:57,440 --> 00:05:01,800
+This helps me think through ways in which I can kind of structure structured metadata.
+
+90
+00:05:01,800 --> 00:05:05,160
+But let's just pretend for just a moment that I'd like all of this.
+
+91
+00:05:05,160 --> 00:05:06,680
+What can I do at this stage?
+
+92
+00:05:06,680 --> 00:05:09,960
+Well, let's say I want to just work with this internally.
+
+93
+00:05:09,960 --> 00:05:12,560
+I can click the Save button and I can select,
+
+94
+00:05:12,560 --> 00:05:15,600
+I only want to be the one to view this and work with it.
+
+95
+00:05:15,600 --> 00:05:18,960
+I'll do this when I'm developing this, at least testing out a couple things.
+
+96
+00:05:18,960 --> 00:05:21,920
+When I'm ready to send this out and have other individuals test this model and
+
+97
+00:05:21,920 --> 00:05:26,280
+how it's performing on out of scope data that probably I can't come up with,
+
+98
+00:05:26,280 --> 00:05:31,200
+I can then allow only people with the link to actually access and use this model.
+
+99
+00:05:31,200 --> 00:05:35,320
+And then finally, once I pass that test, I can go ahead and select public and
+
+100
+00:05:35,320 --> 00:05:39,320
+make this publicly available for others to test it and give larger feedback.
+
+101
+00:05:39,320 --> 00:05:43,680
+But overall, that's a very quick introduction to this new OpenAI feature
+
